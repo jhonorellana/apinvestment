@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Api Web App</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" integrity="sha512-BKbSR+cfyxLdMAsE0naLReFSLg8/pjbgfxHh/k/kUC82Hy7r6HtR5hLhobaln2gcTvzkyyehrdREdjpsQwy2Jw==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+	<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+	Probando Api con Vue y Bootstrap <br>
+	
+	<div id="application">
+		<button v-on:click="consultarProductos()">Consultar Productos</button>
+		<table class="table table-striped">
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Descripcion</th>
+				<th scope="col">Precio</th>
+				<th scope="col">Estado</th>
+			</tr>
+			<tr class="table-success" v-for="product in info.data">
+        		<td scope="row">{{ product.id }}</td>
+        		<td>{{ product.description }}</td>
+        		<td>{{ product.price }}</td>
+        		<td>{{ product.status }}</td>
+        	</tr>
+		  </table>
+	</div>
+	
+	<script>
+		var app = new Vue({
+		  el: '#application',
+		  data () {
+		    return {
+		      info: []
+		    }
+		  },
+        	
+		  methods: {
+		  	consultarProductos:function () {
+			    axios
+			      .get('http://localhost/apilaravel/api/products?api_token=EiUN9JlqPzRu2ELsBAeYInEqXXxTJEE6')
+			      .then(response => (this.info = response))
+		  	}
+		  }
+		})
+	</script>
+</body>
+</html>
