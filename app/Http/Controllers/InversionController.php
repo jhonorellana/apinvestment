@@ -43,7 +43,7 @@ class InversionController extends Controller
             'Rendimiento' => 'required|numeric',
             'Capital' => 'required|numeric',
             'Retencion' => 'required|numeric',
-            'Vendido' => 'required|numeric',
+            'Pagado' => 'required|numeric',
             'Expirado' => 'required|numeric',
             'Activo' => 'required|numeric',
         ];
@@ -68,7 +68,7 @@ class InversionController extends Controller
             $Inversion->inv_return = $request->Rendimiento;
             $Inversion->inv_principal = $request->Capital;
             $Inversion->inv_retention = $request->Retencion;
-            $Inversion->inv_sold = $request->Vendido;
+            $Inversion->inv_paid = $request->Pagado;
             $Inversion->inv_expired = $request->Expirado;
             $Inversion->is_active = $request->Activo;
             $Inversion->save();
@@ -115,7 +115,7 @@ class InversionController extends Controller
             'Rendimiento' => 'required|numeric',
             'Capital' => 'required|numeric',
             'Retencion' => 'required|numeric',
-            'Vendido' => 'required|numeric',
+            'Pagado' => 'required|numeric',
             'Expirado' => 'required|numeric',
             'Activo' => 'required|numeric',
         ];
@@ -139,7 +139,7 @@ class InversionController extends Controller
             $Inversion->inv_return = $request->Rendimiento;
             $Inversion->inv_principal = $request->Capital;
             $Inversion->inv_retention = $request->Retencion;
-            $Inversion->inv_sold = $request->Vendido;
+            $Inversion->inv_paid = $request->Pagado;
             $Inversion->inv_expired = $request->Expirado;
             $Inversion->is_active = $request->Activo;
             $Inversion->save();
